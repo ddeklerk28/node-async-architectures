@@ -1,0 +1,23 @@
+{
+  "name": "node-async-architectures",
+  "version": "1.0.0",
+  "description": "a suite of async libraries that can be reused in other projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddeklerk28/node-async-architectures.git"
+  },
+  "keywords": [
+    "async",
+    "node"
+  ],
+  "author": "dirk.deklerk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ddeklerk28/node-async-architectures/issues"
+  },
+  "homepage": "https://github.com/ddeklerk28/node-async-architectures#readme"
+}
