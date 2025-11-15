@@ -130,3 +130,4 @@ out
 # Optional turborepo cache
 .turbo
 
+message_queue_architecture.md
