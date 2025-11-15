@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "incremental": true
+  },
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./packages/message-queue" }
+  ],
+  "files": [],
+  "include": []
+}
+
