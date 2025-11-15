@@ -1,10 +1,46 @@
 {
   "name": "node-async-architectures",
   "version": "1.0.0",
-  "description": "a suite of async libraries that can be reused in other projects",
-  "main": "index.js",
+  "description": "A suite of async architecture pattern libraries for Node.js",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "examples/*/server",
+    "examples/*/client",
+    "examples/shared"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build --workspaces --if-present",
+    "build:core": "npm run build -w @forge/core",
+    "build:mq": "npm run build -w @forge/message-queue",
+    "dev:core": "npm run dev -w @forge/core",
+    "dev:mq": "npm run dev -w @forge/message-queue",
+    "dev:mq:server": "npm run dev -w @examples/message-queue-server",
+    "dev:mq:client": "npm run dev -w @examples/message-queue-client",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:core": "npm run test -w @forge/core",
+    "test:mq": "npm run test -w @forge/message-queue",
+    "lint": "eslint packages examples --ext .ts",
+    "lint:fix": "eslint packages examples --ext .ts --fix",
+    "format": "prettier --write \"**/*.{ts,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,json,md}\"",
+    "typecheck": "tsc --noEmit",
+    "clean": "npm run clean --workspaces --if-present && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.1.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.2",
+    "vitest": "^1.0.0"
   },
   "repository": {
     "type": "git",
@@ -12,12 +48,21 @@
   },
   "keywords": [
     "async",
-    "node"
+    "node",
+    "message-queue",
+    "pub-sub",
+    "event-stream",
+    "typescript",
+    "monorepo"
   ],
   "author": "dirk.deklerk",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ddeklerk28/node-async-architectures/issues"
   },
-  "homepage": "https://github.com/ddeklerk28/node-async-architectures#readme"
+  "homepage": "https://github.com/ddeklerk28/node-async-architectures#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
 }
